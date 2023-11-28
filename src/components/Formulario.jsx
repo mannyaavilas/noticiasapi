@@ -16,7 +16,7 @@ function Formulario() {
     const {categoria, handleChangeCategoria} = useNoticias()
     
   return (
-    <forn>
+    <form>
       <FormControl fullWidth>
         <InputLabel>Categoría</InputLabel>
         <Select
@@ -44,7 +44,7 @@ function Formulario() {
             </Button>
         </Box>
       </FormControl>
-    </forn>
+    </form>
   )
 }
 
