@@ -6,6 +6,7 @@ const NoticiasContext = createContext()
 const NoticiasProvider = ({children}) => {
 
     const [categoria, setCategoria] = useState('general')
+    const [noticias, setNoticias] = useState([])
 
     useEffect(() => {
         const consultarAPI = async () => {
@@ -13,7 +14,7 @@ const NoticiasProvider = ({children}) => {
 
             const {data} = await axios(url)
 
-            console.log(data.articles)
+            setNoticias(data.articles)
         }
         consultarAPI()
     }, [categoria])
@@ -26,7 +27,8 @@ const NoticiasProvider = ({children}) => {
         <NoticiasContext.Provider
             value={{
                 categoria,
-                handleChangeCategoria
+                handleChangeCategoria,
+                noticias
             }}
         >
             {children}
