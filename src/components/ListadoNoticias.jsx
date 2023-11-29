@@ -7,7 +7,7 @@ import Noticia from "./Noticia"
 
 function ListadoNoticias() {
 
-    const {noticias, totalNoticias} = useNoticias()
+    const {noticias, totalNoticias, handleChangePagina, pagina} = useNoticias()
 
     const totalPaginas = Math.ceil(totalNoticias / 20)
 
@@ -46,6 +46,8 @@ function ListadoNoticias() {
         <Pagination
            count={totalPaginas} 
            color="primary" 
+           onChange={handleChangePagina}
+           page={pagina}
         />
       </Stack>
     </>
